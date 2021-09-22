@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProceedToBuyModule.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     [ApiController]
     public class CartMicroserviceController : ControllerBase
     {
@@ -17,6 +17,7 @@ namespace ProceedToBuyModule.Controllers
         {
             _db = db;
         }
+        [Route("api/[controller]")]
         [HttpPost]
         public async Task<ActionResult<Cart>> addProductToCart([FromBody] Cart cart)
         {
@@ -26,7 +27,8 @@ namespace ProceedToBuyModule.Controllers
             await _db.SaveChangesAsync();
             return Ok(cart);
         }
-        [HttpPost("{customerid}/{productid}")]
+        [Route("api/[controller]/{customerid}/{productid}")]
+        [HttpPost]
         public async Task<IActionResult> addProductToWishlist([FromRoute] int customerid,[FromRoute]int productid)
         {
             CustomerWishList wishList = new CustomerWishList() { CartId = customerid, ProductId = productid, DateAddedToWishList = DateTime.Now };
