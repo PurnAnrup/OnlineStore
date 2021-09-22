@@ -3,10 +3,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProceedToBuyModule.Migrations
 {
-    public partial class products : Migration
+    public partial class product : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "CustomerWishLists",
+                columns: table => new
+                {
+                    CartId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    DateAddedToWishList = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CustomerWishLists", x => new { x.CartId, x.ProductId });
+                });
+
             migrationBuilder.CreateTable(
                 name: "Vendors",
                 columns: table => new
@@ -43,9 +56,32 @@ namespace ProceedToBuyModule.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "VendorsLists",
+                columns: table => new
+                {
+                    VendorId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.ForeignKey(
+                        name: "FK_VendorsLists_Vendors_VendorId",
+                        column: x => x.VendorId,
+                        principalTable: "Vendors",
+                        principalColumn: "VendorId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Carts_VendorId",
                 table: "Carts",
+                column: "VendorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VendorsLists_VendorId",
+                table: "VendorsLists",
                 column: "VendorId");
         }
 
@@ -53,6 +89,12 @@ namespace ProceedToBuyModule.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Carts");
+
+            migrationBuilder.DropTable(
+                name: "CustomerWishLists");
+
+            migrationBuilder.DropTable(
+                name: "VendorsLists");
 
             migrationBuilder.DropTable(
                 name: "Vendors");

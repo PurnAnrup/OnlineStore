@@ -10,8 +10,8 @@ using ProceedToBuyModule;
 namespace ProceedToBuyModule.Migrations
 {
     [DbContext(typeof(CustomerProductDbContext))]
-    [Migration("20210922051010_products2")]
-    partial class products2
+    [Migration("20210922101623_product")]
+    partial class product
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
