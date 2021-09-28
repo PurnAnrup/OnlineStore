@@ -9,11 +9,8 @@ namespace ProceedToBuyModule
 {
     public class CustomerProductDbContext:DbContext
     {
-        public DbSet<Vendor> Vendors { get; set; }
+
         public DbSet<Cart> Carts { get; set; }
-
-        public DbSet<VendorsList> VendorsLists { get; set; }
-
         public DbSet<CustomerWishList> CustomerWishLists { get; set; }
 
         public CustomerProductDbContext(DbContextOptions<CustomerProductDbContext> options) : base(options)
@@ -23,7 +20,9 @@ namespace ProceedToBuyModule
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CustomerWishList>().HasKey(u => new { u.CartId, u.ProductId });
+            modelBuilder.Entity<Cart>().HasKey(s=> new {s.Id,s.ProductId });
+            modelBuilder.Entity<CustomerWishList>().HasKey(u => new { u.Id, u.ProductId });
+            
         }
     }
 }

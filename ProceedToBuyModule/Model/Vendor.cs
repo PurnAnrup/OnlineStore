@@ -7,8 +7,9 @@ namespace ProceedToBuyModule
 {
     public class Vendor
     {
-        public int VendorId { get; set; }
+        public int Id { get; set; }
         public string VendorName { get; set; }
         public double DeliveryCharge { get; set; }
+        public double Rating { get; set; }
     }
 }

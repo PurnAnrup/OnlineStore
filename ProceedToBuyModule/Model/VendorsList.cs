@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace ProceedToBuyModule.Model
 {
-    [Keyless]
+    
     public class VendorsList
     {
-        [ForeignKey("Vendor")]
-        public int VendorId{ get; set; }
         public int ProductId { get; set; }
-        public int Quantity { get; set; }
+
         public Vendor Vendor { get; set; }
+
+        public int VendorId { get; set; }
+
+        public int StockInHand { get; set; }
+
+        
+        public DateTime ExpectedStockReplinshmentDate { get; set; }
     }
 }

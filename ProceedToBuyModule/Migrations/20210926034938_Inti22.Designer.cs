@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProceedToBuyModule;
 
 namespace ProceedToBuyModule.Migrations
 {
     [DbContext(typeof(CustomerProductDbContext))]
-    partial class CustomerProductDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210926034938_Inti22")]
+    partial class Inti22
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,6 +31,12 @@ namespace ProceedToBuyModule.Migrations
 
                     b.Property<DateTime>("DeliveryDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VendorId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");
@@ -55,6 +63,23 @@ namespace ProceedToBuyModule.Migrations
                     b.HasKey("Id", "ProductId");
 
                     b.ToTable("CustomerWishLists");
+                });
+
+            modelBuilder.Entity("ProceedToBuyModule.Vendor", b =>
+                {
+                    b.Property<double>("DeliveryCharge")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
+
+                    b.Property<string>("VendorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("Vendor");
                 });
 #pragma warning restore 612, 618
         }

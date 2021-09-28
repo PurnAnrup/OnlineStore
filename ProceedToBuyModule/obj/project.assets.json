@@ -11,6 +11,21 @@
           "lib/netstandard2.0/Humanizer.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.19": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
@@ -1618,6 +1633,21 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.19": {
+      "sha512": "cWE+aQgBLF3D899kenY9p7AuKlJJi60TPhoOB44A9/89eqxflTexbHWxK47cyMqR3Rmz0eAa2P43mPP+ThO03g==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.1.19",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.3.1.19.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
     "Microsoft.CSharp/4.7.0": {
@@ -6058,6 +6088,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.19",
       "Microsoft.EntityFrameworkCore >= 5.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.10",
@@ -6066,23 +6097,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\91898\\.nuget\\packages\\": {},
+    "C:\\Users\\dilip\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\91898\\source\\repos\\ProceedToBuyModule\\ProceedToBuyModule\\ProceedToBuyModule.csproj",
+      "projectUniqueName": "C:\\Users\\dilip\\source\\repos\\OnlineStore\\ProceedToBuyModule\\ProceedToBuyModule.csproj",
       "projectName": "ProceedToBuyModule",
-      "projectPath": "C:\\Users\\91898\\source\\repos\\ProceedToBuyModule\\ProceedToBuyModule\\ProceedToBuyModule.csproj",
-      "packagesPath": "C:\\Users\\91898\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\91898\\source\\repos\\ProceedToBuyModule\\ProceedToBuyModule\\obj\\",
+      "projectPath": "C:\\Users\\dilip\\source\\repos\\OnlineStore\\ProceedToBuyModule\\ProceedToBuyModule.csproj",
+      "packagesPath": "C:\\Users\\dilip\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dilip\\source\\repos\\OnlineStore\\ProceedToBuyModule\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\91898\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dilip\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6109,6 +6140,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[3.1.19, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[5.0.10, )"
@@ -6150,7 +6185,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
