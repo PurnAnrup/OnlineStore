@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using ProceedToBuyModule.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace ProceedToBuyModule
             services.AddControllers();
             services.AddDbContext<CustomerProductDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Product")));
             var key = Encoding.ASCII.GetBytes(SECRET);
-
+            services.AddScoped<ICartWishhlist,CartWishlistRepository>();
             services.AddAuthentication(x =>
             {
                 x.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
