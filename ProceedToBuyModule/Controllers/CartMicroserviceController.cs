@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using ProceedToBuyModule.Model;
 using System;
@@ -13,7 +14,7 @@ namespace ProceedToBuyModule.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    
     public class CartMicroserviceController : ControllerBase
     {
         private readonly CustomerProductDbContext _db;
@@ -36,7 +37,7 @@ namespace ProceedToBuyModule.Controllers
 
         }
 
-        [HttpGet]
+        [HttpGet("GetVendor/{productId}")]
         public Vendor GetVendor(int productId)
         {
             string url = String.Format("https://localhost:44380/Vendor/" + productId);
@@ -59,12 +60,12 @@ namespace ProceedToBuyModule.Controllers
         [HttpPost("AddProductToCart")]
         public async Task<ActionResult<Cart>> AddProductToCart([FromBody] Cart cart)
         {
-            Cart c = _db.Carts.Where(s => s.Id == cart.Id && s.ProductId == cart.ProductId).FirstOrDefault();
-            if(c!=null)
-            {
-                return Ok("Item Already in Cart");
-            }
+            
             Vendor vendor = GetVendor(cart.ProductId);
+            if(vendor==null)
+            {
+                return NotFound("Out of Stock");
+            }
             cart.Vendor = vendor;
             _db.Carts.Add(cart);
             await _db.SaveChangesAsync();
@@ -75,14 +76,38 @@ namespace ProceedToBuyModule.Controllers
         public async Task<IActionResult> AddProductToWishlist([FromRoute] int customerid,[FromRoute]int productid)
         {
             CustomerWishList Wishlist = _db.CustomerWishLists.Where(s => s.Id == customerid && s.ProductId == productid).FirstOrDefault();
-            if(Wishlist != null)
-            {
-                return Ok("Item Already Exits in Wishlist");
-            }
+            
             CustomerWishList wishList = new CustomerWishList() { Id = customerid, ProductId = productid, DateAddedToWishList = DateTime.Now };
             _db.CustomerWishLists.Add(wishList);
             await _db.SaveChangesAsync();
             return Ok("Inserted Successfully");
+        }
+
+        [HttpDelete("RemoveProductFromCart/{uid}/{pid}")]
+        public async Task<IActionResult> RemoveProductFromCart(int uid,int pid)
+        {
+            Cart cart = await _db.Carts.Where(s=>s.Id==uid&& s.ProductId==pid).FirstOrDefaultAsync();
+            if(cart == null)
+            {
+                return NotFound();
+            }
+            _db.Carts.Remove(cart);
+            await _db.SaveChangesAsync();
+            return Ok("Deleted Successfully");
+        }
+
+
+        [HttpDelete("RemoveProductFromWishlist/{uid}/{pid}")]
+        public async Task<IActionResult> RemoveProductFromWishlist(int uid, int pid)
+        {
+            CustomerWishList wishList = await _db.CustomerWishLists.Where(s => s.Id == uid && s.ProductId == pid).FirstOrDefaultAsync();
+            if (wishList == null)
+            {
+                return NotFound();
+            }
+            _db.CustomerWishLists.Remove(wishList);
+            await _db.SaveChangesAsync();
+            return Ok("Deleted Successfully");
         }
 
         [HttpGet("GetWishList/{id}")]

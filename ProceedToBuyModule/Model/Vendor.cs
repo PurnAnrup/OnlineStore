@@ -9,7 +9,7 @@ namespace ProceedToBuyModule
     {
         public int Id { get; set; }
         public string VendorName { get; set; }
-        public double DeliveryCharge { get; set; }
+        public double DeliveryCharges { get; set; }
         public double Rating { get; set; }
     }
 }

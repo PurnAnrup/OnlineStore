@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProceedToBuyModule;
 
 namespace ProceedToBuyModule.Migrations
 {
     [DbContext(typeof(CustomerProductDbContext))]
-    partial class CustomerProductDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210929085201_Hint")]
+    partial class Hint
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +35,7 @@ namespace ProceedToBuyModule.Migrations
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");
 
-                    b.HasKey("Id", "ProductId", "DeliveryDate");
+                    b.HasKey("Id", "ProductId");
 
                     b.ToTable("Carts");
                 });
@@ -49,7 +51,7 @@ namespace ProceedToBuyModule.Migrations
                     b.Property<DateTime>("DateAddedToWishList")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id", "ProductId", "DateAddedToWishList");
+                    b.HasKey("Id", "ProductId");
 
                     b.ToTable("CustomerWishLists");
                 });

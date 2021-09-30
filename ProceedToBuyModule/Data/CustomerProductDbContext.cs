@@ -20,8 +20,8 @@ namespace ProceedToBuyModule
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Cart>().HasKey(s=> new {s.Id,s.ProductId });
-            modelBuilder.Entity<CustomerWishList>().HasKey(u => new { u.Id, u.ProductId });
+            modelBuilder.Entity<Cart>().HasKey(s=> new {s.Id,s.ProductId ,s.DeliveryDate});
+            modelBuilder.Entity<CustomerWishList>().HasKey(u => new { u.Id, u.ProductId,u.DateAddedToWishList });
             
         }
     }

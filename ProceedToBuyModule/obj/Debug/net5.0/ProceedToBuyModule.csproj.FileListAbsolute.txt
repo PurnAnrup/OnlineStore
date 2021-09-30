@@ -120,3 +120,4 @@ C:\Users\dilip\source\repos\OnlineStore\ProceedToBuyModule\obj\Debug\net5.0\Proc
 C:\Users\dilip\source\repos\OnlineStore\ProceedToBuyModule\obj\Debug\net5.0\ref\ProceedToBuyModule.dll
 C:\Users\dilip\source\repos\OnlineStore\ProceedToBuyModule\obj\Debug\net5.0\ProceedToBuyModule.pdb
 C:\Users\dilip\source\repos\OnlineStore\ProceedToBuyModule\obj\Debug\net5.0\ProceedToBuyModule.genruntimeconfig.cache
+C:\Users\dilip\source\repos\OnlineStore\ProceedToBuyModule\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
