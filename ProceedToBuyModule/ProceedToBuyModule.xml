@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProceedToBuyModule</name>
+    </assembly>
+    <members>
+        <member name="M:ProceedToBuyModule.Controllers.CartMicroserviceController.GetCartById(System.Int32)">
+            <summary>
+            Get Cart By Id
+            </summary>
+            <return>
+            Returns Cart By Id
+            </return>
+            <remarks>
+            Sample request
+            GET /api/CartMicroService
+            
+            </remarks>
+            <response code="200"> Returns Cart By Id</response>
+        </member>
+        <member name="M:ProceedToBuyModule.Controllers.CartMicroserviceController.GetVendor(System.Int32)">
+            <summary>
+            Get Vendor
+            </summary>
+            <return>
+            Returns Vendor 
+            </return>
+            <remarks>
+            Sample request
+            GET /api/CartMicroService
+            
+            </remarks>
+            <response code="200">Returns Vendor</response>
+        </member>
+        <member name="M:ProceedToBuyModule.Controllers.CartMicroserviceController.AddProductToCart(ProceedToBuyModule.Cart)">
+             <summary>
+            Add Product To Cart
+             </summary>
+             <return>
+             Returns Number of Items Added to the cart
+             </return>
+             <remarks>
+             Sample request
+             POST / api/ProductMicroServices
+             
+             </remarks>
+             <response code="201">Successfully added product to the cart</response>
+        </member>
+        <member name="M:ProceedToBuyModule.Controllers.CartMicroserviceController.AddProductToWishlist(System.Int32,System.Int32)">
+             <summary>
+            Add Product To Wishlist
+             </summary>
+             <return>
+             Returns Number of Items Added to the Wishlist
+             </return>
+             <remarks>
+             Sample request
+             POST / api/ProductMicroServices
+             
+             </remarks>
+             <response code="201">Successfully added product to the Wishlist</response>
+        </member>
+        <member name="M:ProceedToBuyModule.Controllers.CartMicroserviceController.RemoveProductFromCart(System.Int32,System.Int32)">
+             <summary>
+            Remove Product From Cart
+             </summary>
+             <return>
+             Returns status message
+             </return>
+             <remarks>
+             Sample request
+             POST / api/ProductMicroServices
+             
+             </remarks>
+             <response code="204">Successfully deleted</response>
+        </member>
+        <member name="M:ProceedToBuyModule.Controllers.CartMicroserviceController.RemoveProductFromWishlist(System.Int32,System.Int32)">
+             <summary>
+            Remove Product From Wishlist
+             </summary>
+             <return>
+             Returns status message
+             </return>
+             <remarks>
+             Sample request
+             POST / api/ProductMicroServices
+             
+             </remarks>
+             <response code="204">Successfully deleted</response>
+        </member>
+        <member name="M:ProceedToBuyModule.Controllers.CartMicroserviceController.GetWishListById(System.Int32)">
+            <summary>
+            Get WishList By Id
+            </summary>
+            <return>
+            Returns WishList By Id 
+            </return>
+            <remarks>
+            Sample request
+            GET /api/CartMicroService
+            
+            </remarks>
+            <response code="200">Returns WishList By Id</response>
+        </member>
+    </members>
+</doc>

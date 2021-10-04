@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProceedToBuyModule.Migrations
 {
-    public partial class Inti22 : Migration
+    public partial class Online : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,14 +13,12 @@ namespace ProceedToBuyModule.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    ZipCode = table.Column<int>(type: "int", nullable: false),
                     DeliveryDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    VendorId = table.Column<int>(type: "int", nullable: false)
+                    ZipCode = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Carts", x => new { x.Id, x.ProductId });
+                    table.PrimaryKey("PK_Carts", x => new { x.Id, x.ProductId, x.DeliveryDate });
                 });
 
             migrationBuilder.CreateTable(
@@ -29,25 +27,11 @@ namespace ProceedToBuyModule.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
                     DateAddedToWishList = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CustomerWishLists", x => new { x.Id, x.ProductId });
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Vendor",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    VendorName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DeliveryCharge = table.Column<double>(type: "float", nullable: false),
-                    Rating = table.Column<double>(type: "float", nullable: false)
-                },
-                constraints: table =>
-                {
+                    table.PrimaryKey("PK_CustomerWishLists", x => new { x.Id, x.ProductId, x.DateAddedToWishList });
                 });
         }
 
@@ -58,9 +42,6 @@ namespace ProceedToBuyModule.Migrations
 
             migrationBuilder.DropTable(
                 name: "CustomerWishLists");
-
-            migrationBuilder.DropTable(
-                name: "Vendor");
         }
     }
 }

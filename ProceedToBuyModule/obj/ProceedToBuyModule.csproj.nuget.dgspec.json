@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dilip\\source\\repos\\OnlineStore\\ProceedToBuyModule\\ProceedToBuyModule.csproj": {}
+    "C:\\Users\\sushm_4qm2dck\\OneDrive\\Desktop\\RPMS\\OnlineStore\\ProceedToBuyModule\\ProceedToBuyModule.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dilip\\source\\repos\\OnlineStore\\ProceedToBuyModule\\ProceedToBuyModule.csproj": {
+    "C:\\Users\\sushm_4qm2dck\\OneDrive\\Desktop\\RPMS\\OnlineStore\\ProceedToBuyModule\\ProceedToBuyModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dilip\\source\\repos\\OnlineStore\\ProceedToBuyModule\\ProceedToBuyModule.csproj",
+        "projectUniqueName": "C:\\Users\\sushm_4qm2dck\\OneDrive\\Desktop\\RPMS\\OnlineStore\\ProceedToBuyModule\\ProceedToBuyModule.csproj",
         "projectName": "ProceedToBuyModule",
-        "projectPath": "C:\\Users\\dilip\\source\\repos\\OnlineStore\\ProceedToBuyModule\\ProceedToBuyModule.csproj",
-        "packagesPath": "C:\\Users\\dilip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dilip\\source\\repos\\OnlineStore\\ProceedToBuyModule\\obj\\",
+        "projectPath": "C:\\Users\\sushm_4qm2dck\\OneDrive\\Desktop\\RPMS\\OnlineStore\\ProceedToBuyModule\\ProceedToBuyModule.csproj",
+        "packagesPath": "C:\\Users\\sushm_4qm2dck\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sushm_4qm2dck\\OneDrive\\Desktop\\RPMS\\OnlineStore\\ProceedToBuyModule\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dilip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sushm_4qm2dck\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -62,6 +62,10 @@
               "target": "Package",
               "version": "[5.0.10, )"
             },
+            "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.14, )"
@@ -69,6 +73,18 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.2.2, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.2.2, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.12, )"
             }
           },
           "imports": [
@@ -89,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

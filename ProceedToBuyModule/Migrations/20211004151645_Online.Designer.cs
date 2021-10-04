@@ -10,8 +10,8 @@ using ProceedToBuyModule;
 namespace ProceedToBuyModule.Migrations
 {
     [DbContext(typeof(CustomerProductDbContext))]
-    [Migration("20210926041127_Inti229")]
-    partial class Inti229
+    [Migration("20211004151645_Online")]
+    partial class Online
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,13 +32,10 @@ namespace ProceedToBuyModule.Migrations
                     b.Property<DateTime>("DeliveryDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("VendorId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");
 
-                    b.HasKey("Id", "ProductId");
+                    b.HasKey("Id", "ProductId", "DeliveryDate");
 
                     b.ToTable("Carts");
                 });
@@ -54,29 +51,9 @@ namespace ProceedToBuyModule.Migrations
                     b.Property<DateTime>("DateAddedToWishList")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id", "ProductId");
+                    b.HasKey("Id", "ProductId", "DateAddedToWishList");
 
                     b.ToTable("CustomerWishLists");
-                });
-
-            modelBuilder.Entity("ProceedToBuyModule.Vendor", b =>
-                {
-                    b.Property<double>("DeliveryCharge")
-                        .HasColumnType("float");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Rating")
-                        .HasColumnType("float");
-
-                    b.Property<string>("VendorName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("Vendor");
                 });
 #pragma warning restore 612, 618
         }
